@@ -3,8 +3,9 @@
 
 #include <cstring>
 
-class Select // pure virtual class (the "strategy")
-{
+class Select 
+{ // pure virtual class, implements / encapsulates concrete strategies
+
 public:
     virtual ~Select() = default;
 
