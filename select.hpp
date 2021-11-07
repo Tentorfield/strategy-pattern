@@ -3,7 +3,7 @@
 
 #include <cstring>
 
-class Select
+class Select // pure virtual class (the "strategy")
 {
 public:
     virtual ~Select() = default;
