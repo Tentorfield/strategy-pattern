@@ -1,11 +1,12 @@
-#include "Select.hpp"
+#include "select.hpp"
 
 class Select_Contains : public Select { // subclass of Strategy "Select"
     private:
-
+	string column;
+	int name;
 
     public: 
-	Select_Contains(Select*);
+	select(Select*, string, string);
 	virtual ~Select();
 
         // Return true if the specified row should be selected.

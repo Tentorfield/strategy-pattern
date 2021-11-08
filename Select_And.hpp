@@ -1,4 +1,4 @@
-#include "Select.hpp"
+#include "select.hpp"
 
 class Select_And : public Select { // subclass of Strategy "Select"
     private:

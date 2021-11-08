@@ -2,6 +2,7 @@
 #define __SELECT_HPP__
 
 #include <cstring>
+#include "spreadsheet.cpp"
 
 class Select 
 { // pure virtual class, implements / encapsulates concrete strategies
