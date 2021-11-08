@@ -1,11 +1,11 @@
 #include "Select.hpp"
 
-class Select : SelectAnd { // subclass of Strategy "Select"
+class Select_And : public Select { // subclass of Strategy "Select"
     private:
 
 
     public: 
-	SelectAnd(Select*);
+	Select_And(Select*);
 	virtual ~Select();
 
         // Return true if the specified row should be selected.

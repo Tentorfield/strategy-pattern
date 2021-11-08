@@ -1,12 +1,11 @@
-
 #include "Select.hpp"
 
-class Select : SelectNot { // subclass of Strategy "Select"
+class Select_Not : public Select { // subclass of Strategy "Select"
     private:
 
 
     public: 
-	SelectNot(Select*);
+	Select_Not(Select*);
 	virtual ~Select();
 
         // Return true if the specified row should be selected.

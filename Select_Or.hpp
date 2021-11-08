@@ -1,12 +1,11 @@
-
 #include "Select.hpp"
 
-class Select : SelectOr { // subclass of Strategy "Select"
+class Selec_Or : public Select { // subclass of Strategy "Select"
     private:
 
 
     public: 
-	SelectOr(Select*);
+	Select_Or(Select*);
 	virtual ~Select();
 
         // Return true if the specified row should be selected.
