@@ -1,14 +1,20 @@
+#ifndef __SELECT_AND_HPP__ 
+#define __SELECT_AND_HPP__
+
 #include "select.hpp"
 
-class Select_And : public Select { // subclass of Strategy "Select"
-    private:
+class Select_And: public Select
+{
+protected:
+        Select* value1 = nullptr;
+        Select* value2 = nullptr;
 
+public:
+        ~Select_And();
 
-    public: 
-	Select_And(Select*);
-	virtual ~Select();
+        Select_And(Select* first, Select* second);
 
-        // Return true if the specified row should be selected.
-        virtual bool select(const Spreadsheet* sheet, int row);
-
+        virtual bool select(const Spreadsheet* sheet, int row) const;
 };
+
+#endif
