@@ -7,7 +7,8 @@ class Select_Not : public Select { // subclass of Strategy "Select"
 	Spreadsheet* sheet;
 
     public: 
-	Select_Not(Spreadsheet*, string, string);
+	// is passed in a new Select_Contains object
+	Select_Not(Select_Contains*);
 
         // Return true if the specified row should be selected.
         bool select(const Spreadsheet* sheet, int row);
