@@ -28,6 +28,7 @@ public:
     }
 
     void set_selection(Select* new_select); // sets the object (select) pointer
+					    // (replaces the implicit select parameter with the passed in object)
 
     // TODO: Implement print_selection.
     void print_selection(std::ostream& out) const;
