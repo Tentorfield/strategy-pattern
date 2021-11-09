@@ -12,7 +12,7 @@ TEST(Contains_Test, ContainsJim) {
     sheet->add_row({"Jim","Becker","21","computer science"});
     sheet->add_row({"Carol","Conners","21","computer science"});
 
-    select* test = new Select_Contains(sheet, "first", "Jim");
+    Select* test = new Select_Contains(sheet, "first", "Jim");
     EXPECT_EQ(test->select(sheet, 2), true); 
 }
 /*

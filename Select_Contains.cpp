@@ -9,12 +9,12 @@ this->column = sheet->get_column_by_name(firstOrLast);
 
 }
 
-
+/*
 Select_Contains::~Select() {
 
 delete sheet;
 
-}
+}*/
 
 
 // returns true if the row should be printed and false if should be ignored
