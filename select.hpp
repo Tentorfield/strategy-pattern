@@ -4,15 +4,20 @@
 #include <cstring>
 #include "spreadsheet.cpp"
 
-class Select 
+class select 
 { // pure virtual class, implements / encapsulates concrete strategies
 
 public:
-    virtual ~Select() = default;
+    virtual ~select() = default; // same as saying = 0;
 
     // Return true if the specified row should be selected.
     virtual bool select(const Spreadsheet* sheet, int row) const = 0;
 };
+
+select::~select(){
+   std::cout << "viritual destructor is called" << endl;
+}
+
 
 // A common type of criterion for selection is to perform a comparison based on
 // the contents of one column.  This class contains contains the logic needed
@@ -21,7 +26,7 @@ public:
 // a string) and implements the original interface in terms of this.  Derived
 // classes need only implement the new select function.  You may choose to
 // derive from Select or Select_Column at your convenience.
-class Select_Column: public Select
+class Select_Column: public select
 {
 protected:
     int column;

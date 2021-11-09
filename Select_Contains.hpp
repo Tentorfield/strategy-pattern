@@ -2,11 +2,12 @@
 
 class Select_Contains : public Select { // subclass of Strategy "Select"
     private:
-	string column;
-	int name;
+	int column;
+	string name;
+	Spreadsheet* sheet;
 
     public: 
-	select(Select*, string, string);
+	Select_Contains(Spreadsheet*, string, string);
 	virtual ~Select();
 
         // Return true if the specified row should be selected.
