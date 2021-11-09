@@ -1,3 +1,7 @@
-CMake*
-cmake*
-google*
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+lib/
+test
+spreadsheet
