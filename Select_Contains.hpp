@@ -8,9 +8,8 @@ class Select_Contains : public Select { // subclass of Strategy "Select"
 
     public: 
 	Select_Contains(Spreadsheet*, string, string);
-	virtual ~Select();
 
         // Return true if the specified row should be selected.
-        virtual bool select(const Spreadsheet* sheet, int row);
+        bool select(const Spreadsheet* sheet, int row);
 
 };

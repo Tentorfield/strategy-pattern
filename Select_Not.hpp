@@ -2,13 +2,14 @@
 
 class Select_Not : public Select { // subclass of Strategy "Select"
     private:
-
+	int column;
+	string name;
+	Spreadsheet* sheet;
 
     public: 
-	Select_Not(Select*);
-	virtual ~Select();
+	Select_Not(Spreadsheet*, string, string);
 
         // Return true if the specified row should be selected.
-        virtual bool select(const Spreadsheet* sheet, int row);
+        bool select(const Spreadsheet* sheet, int row);
 
 };
