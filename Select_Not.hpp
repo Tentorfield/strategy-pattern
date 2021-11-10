@@ -1,7 +1,7 @@
 #include "select.hpp"
 
 class Select_Not : public Select { // subclass of Strategy "Select"
-    private:
+    protected:
 	Select* selection;
 
     public: 

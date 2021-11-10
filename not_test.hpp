@@ -1,11 +1,10 @@
-
 #ifndef _NOT_TEST_HPP
 #define _NOT_TEST_HPP
 
 #include "gtest/gtest.h"
 #include "Select_Contains.cpp"
 #include "spreadsheet.hpp"
-#include "Select_Contains.cpp"
+#include "contains_test.hpp"
 
 TEST(NOT_Test, NotJim) {
 

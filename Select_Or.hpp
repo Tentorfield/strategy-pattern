@@ -4,17 +4,17 @@
 #include "select.hpp"
 
 class Select_Or : public Select { // subclass of Strategy "Select"
-    private://
+    protected:
+	Select* value1 = nullptr;
+	Select* value2 = nullptr;
 
-
-    public: 
-	Select_Or(Select*);
-	virtual ~Select();
+    public:
+	~Select_Or();
 
         // Return true if the specified row should be selected.
 	Select_Or(Select* first, Select* second);
 
-        virtual bool select(const Spreadsheet* sheet, int row);
+        bool select(const Spreadsheet* sheet, int row) const;
 
 };
 
