@@ -1,6 +1,7 @@
 
 #include "Select_Contains.hpp"
-
+#include <cstring>
+#include <string>
 Select_Contains::Select_Contains(Spreadsheet* sheet, string firstOrLast, string name){
 
 //this->sheet = sheet;
