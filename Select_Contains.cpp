@@ -3,7 +3,7 @@
 
 Select_Contains::Select_Contains(Spreadsheet* sheet, string firstOrLast, string name){
 
-this->sheet = sheet;
+//this->sheet = sheet;
 this->name = name;
 this->column = sheet->get_column_by_name(firstOrLast);
 
@@ -14,11 +14,11 @@ this->column = sheet->get_column_by_name(firstOrLast);
 // returns true if the row should be printed and false if should be ignored
 bool Select_Contains::select(const Spreadsheet* sheet, int row) const{
 
-    if (name == sheet->cell_data(row, this->column)) { 
+    if (name == sheet->cell_data(row, this->column).find(name)) { 
 	return true;
     }	
-	else{
-		return false;
-	}
+    else{
+	return false;
+    }
 }
 
