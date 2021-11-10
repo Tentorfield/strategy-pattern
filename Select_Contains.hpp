@@ -8,7 +8,7 @@ class Select_Contains : public Select { // subclass of Strategy "Select"
     private:
 	int column;
 	string name;
-	Spreadsheet* sheet;
+	//Spreadsheet* sheet;
 
     public: 
 	Select_Contains(Spreadsheet*, string, string);
