@@ -1,7 +1,11 @@
 #ifndef __SELECT_HPP__
 #define __SELECT_HPP__
 
+#include <string>
 #include <cstring>
+#include <algorithm>
+#include <iterator>
+#include <iostream>
 
 class Select
 {
