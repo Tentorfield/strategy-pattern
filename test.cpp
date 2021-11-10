@@ -1,7 +1,8 @@
 #include "spreadsheet.hpp"
 #include "gtest/gtest.h"
 
-#include "select_and_test.cpp"
+#include "contains_test.hpp"
+//#include "select_and_test.cpp"
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);

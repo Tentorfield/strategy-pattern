@@ -1,4 +1,8 @@
+#ifndef __SELECT_CONTAINS_HPP__
+#define __SELECT_CONTAINS_HPP__
+
 #include "select.hpp"
+using namespace std;
 
 class Select_Contains : public Select { // subclass of Strategy "Select"
     private:
@@ -8,8 +12,12 @@ class Select_Contains : public Select { // subclass of Strategy "Select"
 
     public: 
 	Select_Contains(Spreadsheet*, string, string);
+        
+        ~Select_Contains() { delete sheet; }
 
         // Return true if the specified row should be selected.
-        bool select(const Spreadsheet* sheet, int row);
+        virtual bool select(const Spreadsheet* sheet, int row) const;
 
 };
+
+#endif //__SELECT_CONTAINS_HPP__ 
