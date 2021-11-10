@@ -4,7 +4,7 @@
 #include "gtest/gtest.h"
 #include "Select_And.cpp"
 #include "spreadsheet.hpp"
-#include "Select_Contains.cpp"
+#include "contains_test.hpp"
 
 TEST(Select_And_Test, EvalualteNamesAnd) {
    Spreadsheet sheet;

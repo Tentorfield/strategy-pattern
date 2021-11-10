@@ -6,11 +6,11 @@ Select_Not::Select_Not(Select* selection) {
 }
 
 Select_Not::~Select_Not() {
-    delete selection;
+    delete this->selection;
 }
 
 // Return false if the specified row should be selected.
 bool Select_Not::select(const Spreadsheet* sheet, int row) const {
-    return !(selection->select(sheet, row));
+    return !(this->selection->select(sheet, row));
 }
 
