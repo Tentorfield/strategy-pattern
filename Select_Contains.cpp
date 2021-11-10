@@ -17,5 +17,8 @@ bool Select_Contains::select(const Spreadsheet* sheet, int row) const{
     if (name == sheet->cell_data(row, this->column)) { 
 	return true;
     }	
+	else{
+		return false;
+	}
 }
 
