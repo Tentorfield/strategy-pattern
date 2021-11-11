@@ -1,4 +1,9 @@
+#include "spreadsheet.cpp"
 #include "spreadsheet.hpp"
+#include "Select_And.cpp"
+#include "Select_Contains.cpp"
+#include "Select_Not.cpp"
+#include "Select_Or.cpp"
 #include "select.hpp"
 
 #include <iostream>
@@ -20,28 +25,29 @@ int main(int argc, char* argv[])
     sheet.print_selection(std::cout);
     std::cout << std::endl;
 
-    // Sample usage 1
+    //Sample usage 1
     sheet.set_selection(new Select_Contains(&sheet,"Last","Dole"));
+ 
     sheet.print_selection(std::cout);
     std::cout << std::endl;
-    
+ 
     // Sample usage 2
-    // sheet.set_selection(
-    //     new Select_And(
-    //         new Select_Contains(&sheet,"Last","Dole"),
-    //         new Select_Not(
-    //             new Select_Contains(&sheet,"First","v"))));
+    sheet.set_selection(
+    	new Select_And(
+    		new Select_Contains(&sheet,"Last","Dole"),
+    		new Select_Not(
+   			new Select_Contains(&sheet,"First","v"))));
     
     sheet.print_selection(std::cout);
     std::cout << std::endl;
 
-    // Sample usage 3
-    // sheet.set_selection(
-    //     new Select_Or(
-    //         new Select_Contains(&sheet,"First","Amanda"),
-    //         new Select_Or(
-    //             new Select_Contains(&sheet,"Last","on"),
-    //             new Select_Contains(&sheet,"Age","9"))));
+    //Sample usage 3
+    sheet.set_selection(
+         new Select_Or(
+             new Select_Contains(&sheet,"First","Amanda"),
+             new Select_Or(
+                 new Select_Contains(&sheet,"Last","on"),
+                 new Select_Contains(&sheet,"Age","9"))));
 
     sheet.print_selection(std::cout);
     std::cout << std::endl;
