@@ -3,6 +3,7 @@
 #include "spreadsheet.cpp"
 //#include "contains_test.hpp"
 #include "select_and_test.hpp"
+#include "select_or_test.hpp"
 //#include "not_test.hpp"
 
 int main(int argc, char **argv) {
