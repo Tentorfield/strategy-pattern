@@ -1,36 +1,54 @@
-#ifndef _NOT_TEST_HPP
-#define _NOT_TEST_HPP
+#ifndef _NOT_TEST_HPP_
+#define _NOT_TEST_HPP_
 
 #include "gtest/gtest.h"
 #include "Select_Contains.cpp"
 #include "spreadsheet.hpp"
-#include "contains_test.hpp"
+#include "Select_Not.hpp"
 
-TEST(NOT_Test, NotJim) {
-
-    Spreadsheet* sheet;
-    sheet->set_column_names({"First","Last","Age","Major"});
-    sheet->add_row({"Amanda","Andrews","22","business"});
-    sheet->add_row({"Jim","Becker","21","computer science"});
-    sheet->add_row({"Carol","Conners","21","computer science"});
-
-    Select* test = new Select_Contains(sheet, "first", "Jim");
-    EXPECT_EQ(test->select(sheet, 2), true); 
-}
-
-#endif //_NOT_TEST_HPP
-
-/*
-TEST(Select_And_Test, EvalualteNamesAnd) {
+TEST(Select_Not_Test, EvaluateLast) {
    Spreadsheet sheet;
    sheet.set_column_names({ "First", "Last", "Grade" });
-   sheet.add_row({ "Huy", "Ngo", "Senior" });
-   sheet.add_row({ "Dong", "Liu", "Junior" });
-   sheet.set_selection(new Select_And(new Select_Contains(&sheet, "First", "Huy"), 
-   new Select_Contains(&sheet, "Last", "Ngo")));
+   sheet.add_row({ "John", "Smith", "Senior" });
+   sheet.add_row({ "Sarah", "Smith", "Senior" });
+   sheet.add_row({ "Sal", "Young", "Senior" });
+   sheet.add_row({ "Jane", "Young", "Senior" });
+   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "Last", "Young"), 
    std::stringstream out;
    sheet.print_selection(out);
 
-   EXPECT_EQ(out.str(), "Huy Ngo Junior \n");
+   EXPECT_EQ(out.str(), "John Smith Senior \nSarah Smith Junior \n");
 }
-*/
+
+TEST(Select_Not_Test, EvaluateFirst) {
+   Spreadsheet sheet;
+   sheet.set_column_names({ "First", "Last", "Grade" });
+   sheet.add_row({ "John", "Smith", "Senior" });
+   sheet.add_row({ "Sarah", "Smith", "Senior" });
+   sheet.add_row({ "Sal", "Young", "Senior" });
+   sheet.add_row({ "Jane", "Young", "Senior" });
+   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "First", "Sarah"), 
+   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "First", "Sal"), 
+   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "First", "Jane"), 
+   std::stringstream out;
+   sheet.print_selection(out);
+
+   EXPECT_EQ(out.str(), "John Smith Senior \n");
+}
+
+TEST(Select_Not_Test, EvaluateNone) {
+   Spreadsheet sheet;
+   sheet.set_column_names({ "First", "Last", "Grade" });
+   sheet.add_row({ "John", "Smith", "Senior" });
+   sheet.add_row({ "Sarah", "Smith", "Senior" });
+   sheet.add_row({ "Sal", "Young", "Senior" });
+   sheet.add_row({ "Jane", "Young", "Senior" });
+   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "Grade", "Senior"), 
+   std::stringstream out;
+   sheet.print_selection(out);
+
+   EXPECT_EQ(out.str(), "");
+}
+
+
+#endif //_NOT_TEST_HPP_
