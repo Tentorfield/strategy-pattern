@@ -1,17 +1,16 @@
 #include "Select_Contains.hpp"
 
-using namespace std;
 Select_Contains::Select_Contains(Spreadsheet* sheet,const string &firstOrLast, const string &name){
 
-this->sheet = sheet;
-this->name = name;
-this->columnNum = sheet->get_column_by_name(firstOrLast);
+    this->sheet = sheet;
+    this->name = name;
+    this->columnNum = sheet->get_column_by_name(firstOrLast);
 
 }
 
-//Select_Contains::~Select_Contains(){
-//	delete this->sheet;
-//}
+Select_Contains::~Select_Contains(){
+	delete this->sheet;
+}
 
 // returns true if the row should be printed and false if should be ignored
 bool Select_Contains::select(const Spreadsheet* sheet, int row) const{

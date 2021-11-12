@@ -1,12 +1,13 @@
 #ifndef __SELECT_CONTAINS_HPP__
 #define __SELECT_CONTAINS_HPP__
-/*
+
 #include "select.hpp"
 #include <string>
 using namespace std;
+
 class Select_Contains : public Select { // subclass of Strategy "Select"
     protected:
-	int column;
+	int columnNum;
 	string name;
 	Spreadsheet* sheet = nullptr;
 
@@ -19,8 +20,9 @@ class Select_Contains : public Select { // subclass of Strategy "Select"
         virtual bool select(const Spreadsheet* sheet, int row) const;
 
 };
-*/
 
+
+/*
 class Select_Contains: public Select {
 
 protected:
@@ -32,4 +34,5 @@ public:
 
     bool select(const Spreadsheet* sheet, int row) const;
 };
+*/
 #endif //__SELECT_CONTAINS_HPP__ 
