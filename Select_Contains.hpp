@@ -14,10 +14,10 @@ class Select_Contains : public Select { // subclass of Strategy "Select"
     public: 
 	Select_Contains(Spreadsheet*, const string&, const string&);
         
-        ~Select_Contains();
+       // ~Select_Contains();
 
         // Return true if the specified row should be selected.
-        virtual bool select(const Spreadsheet* sheet, int row) const;
+        bool select(const Spreadsheet* sheet, int row) const;
 
 };
 

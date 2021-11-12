@@ -2,9 +2,9 @@
 #define _NOT_TEST_HPP_
 
 #include "gtest/gtest.h"
-#include "Select_Contains.cpp"
-#include "spreadsheet.hpp"
-#include "Select_Not.hpp"
+#include "contains_test.hpp"
+#include "Select_Not.cpp"
+#include <fstream>
 
 TEST(Select_Not_Test, EvaluateLast) {
    Spreadsheet sheet;
@@ -13,11 +13,11 @@ TEST(Select_Not_Test, EvaluateLast) {
    sheet.add_row({ "Sarah", "Smith", "Senior" });
    sheet.add_row({ "Sal", "Young", "Senior" });
    sheet.add_row({ "Jane", "Young", "Senior" });
-   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "Last", "Young"), 
+   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "Last", "Young"))); 
    std::stringstream out;
    sheet.print_selection(out);
 
-   EXPECT_EQ(out.str(), "John Smith Senior \nSarah Smith Junior \n");
+   EXPECT_EQ(out.str(), "John Smith Senior \nSarah Smith Senior \n");
 }
 
 TEST(Select_Not_Test, EvaluateFirst) {
@@ -27,13 +27,13 @@ TEST(Select_Not_Test, EvaluateFirst) {
    sheet.add_row({ "Sarah", "Smith", "Senior" });
    sheet.add_row({ "Sal", "Young", "Senior" });
    sheet.add_row({ "Jane", "Young", "Senior" });
-   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "First", "Sarah"), 
-   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "First", "Sal"), 
-   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "First", "Jane"), 
+   sheet.set_selection(
+	new Select_Not(
+		new Select_Contains(&sheet, "First", "S"))); 
    std::stringstream out;
    sheet.print_selection(out);
 
-   EXPECT_EQ(out.str(), "John Smith Senior \n");
+   EXPECT_EQ(out.str(), "John Smith Senior \nJane Young Senior \n");
 }
 
 TEST(Select_Not_Test, EvaluateNone) {
@@ -43,7 +43,7 @@ TEST(Select_Not_Test, EvaluateNone) {
    sheet.add_row({ "Sarah", "Smith", "Senior" });
    sheet.add_row({ "Sal", "Young", "Senior" });
    sheet.add_row({ "Jane", "Young", "Senior" });
-   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "Grade", "Senior"), 
+   sheet.set_selection(new Select_Not(new Select_Contains(&sheet, "Grade", "Senior"))); 
    std::stringstream out;
    sheet.print_selection(out);
 

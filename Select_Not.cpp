@@ -1,3 +1,7 @@
+#ifndef SELECT_NOT_CPP
+#define SELECT_NOT_CPP
+
+#include <iostream>
 #include "Select_Not.hpp"
 
 // is passed in a new Select_Contains object
@@ -13,4 +17,4 @@ Select_Not::~Select_Not() {
 bool Select_Not::select(const Spreadsheet* sheet, int row) const {
     return !(this->selection->select(sheet, row));
 }
-
+#endif
