@@ -3,7 +3,7 @@
 
 #include "gtest/gtest.h"
 #include "Select_Or.cpp"
-//#include "Select_Contains.cpp"
+#include "contains_test.hpp"
 #include "spreadsheet.hpp"
 
 TEST(Select_Or_Test, EvaluateNamesOrBothTrue) {
